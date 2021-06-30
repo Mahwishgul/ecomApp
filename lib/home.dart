@@ -58,7 +58,7 @@ class _EcomState extends State<Ecom> {
 
           Container(
             height: 60,
-            width: MediaQuery.of(context).size.width * 0.9,
+            width: MediaQuery.of(context).size.width * 1,
             child: catSlider(context) ,
           ),
 
@@ -128,9 +128,9 @@ class _EcomState extends State<Ecom> {
                               size: 10,
                             ),
                             Text(
-                              "5.0 (23 Reviews)",
+                              "5.0 (24 Reviews)",
                               style:
-                              TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.grey,),
+                              TextStyle(fontWeight: FontWeight.bold, fontSize: 12,),
                             ),
                           ],
                         ),
@@ -198,9 +198,27 @@ class _EcomState extends State<Ecom> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
-                  Center(
-                    child: new Image.asset(imgList[index],
-                    fit: BoxFit.fitWidth),
+                  Container(
+                    // decoration: BoxDecoration(
+                    //   border: Border.all(
+                    //     width: 2,
+                    //     color: Colors.grey.shade200,
+                    //   ),
+                    //   borderRadius:  BorderRadius.circular(12),
+                    // ),
+
+                    child:
+                    ClipRRect (
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image.asset(imgList[index],
+
+                        width: MediaQuery.of(context).size.width * 1,
+                      ),
+                    ),
+
+          //           new Image.asset(imgList[index],
+          //           // fit: BoxFit.fitWidth
+          // ),
                   ),
                   SizedBox(
                     height: 10,
@@ -223,7 +241,7 @@ class _EcomState extends State<Ecom> {
                       Text(
                         "5.0 (23 Reviews)",
                         style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey,),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18,),
                       ),
                     ],
                   ),
