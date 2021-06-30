@@ -57,16 +57,8 @@ class _EcomState extends State<Ecom> {
           ),
 
           Container(
-            padding: EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey.shade200,
-                width: 2,),
-              borderRadius: BorderRadius.circular(12),
-
-            ),
-            constraints: BoxConstraints(
-                minHeight: 70, minWidth:300,  maxHeight: 70, maxWidth: 300 ),
+            height: 60,
+            width: MediaQuery.of(context).size.width * 0.9,
             child: catSlider(context) ,
           ),
 
@@ -94,6 +86,7 @@ class _EcomState extends State<Ecom> {
               List.generate(lst.length, (index)  {
                 return
                 Container(
+                  height: 80,
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 2,
@@ -112,26 +105,32 @@ class _EcomState extends State<Ecom> {
                     width: 180,
                   ),
                     ),
-                        Text("${lst[index]}", style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text("${lst[index]}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
 
                         Row(
                           children: [
                             Icon(
                               Icons.star,
                               color: Colors.amber,
+                              size: 10,
                             ),
                             Icon(
                               Icons.star,
                               color: Colors.amber,
+                              size: 10,
                             ),
                             Icon(
                               Icons.star,
                               color: Colors.amber,
+                              size: 10,
                             ),
                             Text(
                               "5.0 (23 Reviews)",
                               style:
-                              TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.grey,),
+                              TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.grey,),
                             ),
                           ],
                         ),
@@ -182,11 +181,11 @@ class _EcomState extends State<Ecom> {
         'assets/img5.jpg',
       ];
       final List txtList = [
-        'Macbook Air',
+        'Iphone 11 pro',
+        'Note 20 Ultra',
         'Macbook pro',
-        'Gaming Pc',
         'Mercedes',
-        'Note20 Ultra',
+        'Gaming pc',
       ];
 
       return
@@ -245,19 +244,36 @@ class _EcomState extends State<Ecom> {
 // *************************************************************
 
 Swiper catSlider(context){
-  final List img2List = [
-    'assets/img1.jpg',
-    'assets/img2.jpg',
-    'assets/img3.jpg',
-    'assets/img4.jpg',
-    'assets/img5.jpg',
-  ];
+
   final List catxtList = [
     'Clothes',
     'Electronics',
     'Appliances',
     'Household',
     'Others',
+  ];
+  final List iconlst = [
+  Icon(
+    Icons.add_shopping_cart_outlined,
+    color: Colors.purple,
+  ),
+    Icon(
+      Icons.wallet_membership_rounded,
+      color: Colors.purple,
+    ),
+    Icon(
+      Icons.home,
+      color: Colors.purple,
+    ),
+    Icon(
+      Icons.house,
+      color: Colors.purple,
+    ),
+    Icon(
+      Icons.expand,
+      color: Colors.purple,
+    ),
+
   ];
 
   return
@@ -266,45 +282,46 @@ Swiper catSlider(context){
       autoplay: false,
       itemBuilder: (BuildContext context, int index) {
         return
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey.shade300,
+                width: 2,),
+              borderRadius: BorderRadius.circular(12),
 
-              Row(
-                children: [
-                  Icon(
-                    Icons.add_shopping_cart,
-                    color: Colors.purple,
-                  ),
-                  Column(
+            ),
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                iconlst[index],
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(catxtList[index], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), )),
+                      Text(catxtList[index], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), ),
                       Text(
                         "5 items",
                         style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey,),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 10, ),
                       ),
                     ],
                   ),
+                ),
 
 
 
-                ],
+              ],
 
-              ),
-
-
-
-
-
-            ],
+            ),
           );
       },
       itemCount: 5,
-      scale: 0.8,
-      viewportFraction:0.4,
+      scale: 0.9,
+      viewportFraction:0.5,
 
     );
 }
